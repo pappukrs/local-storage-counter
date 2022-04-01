@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCAL STORAGE COUNTER</title>
+</head>
+<body>
+    <h1>0</h1>
+
+    <!-- for using addEventListener -->
+   <button id="increase">Increase</button> 
+   <button id="decrease">Decrease</button> 
+
+   <!-- by using onclick button attribute  -->
+   <!-- <button  onclick="Increase()">Increase</button> 
+   <button  onclick="decrease()">Decrease</button>  -->
+  
+   
+</body>
+<script>
+
+//  for using addEventListener
+document.getElementById("increase").addEventListener("click",Increase);
+document.getElementById("decrease").addEventListener("click",decrease);
+
+
+var count;
+if(localStorage.getItem("counter")===null){
+    count=0;
+}
+else{
+    count=localStorage.getItem("counter");
+}
+function Increase(){
+    count++;
+    localStorage.setItem("counter",count);
+    document.querySelector("h1").innerText =count;
+}
+function decrease(){
+    count--;
+    localStorage.setItem("counter",count);
+    document.querySelector("h1").innerText =count;
+}
+</script>
+</html>
